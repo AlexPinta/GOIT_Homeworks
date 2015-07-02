@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class Node implements StructureElement {
     public enum NodesType{
-        MAIN, CATEGORY, PROJECT;
+        MAIN, CATEGORY;
     }
     private String name;
     private NodesType nodeType;
@@ -22,6 +22,11 @@ public class Node implements StructureElement {
     public Node(String pName, NodesType pNodeType) {
         nodeType = pNodeType;
         name = pName;
+    }
+
+    @Override
+    public ArrayList<StructureElement> getChild() {
+        return nodeArrayList;
     }
 
     @Override

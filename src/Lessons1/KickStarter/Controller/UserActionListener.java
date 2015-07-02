@@ -9,4 +9,7 @@ package Lessons1.KickStarter.Controller;
  * @version: 1.0
  */
 public class UserActionListener {
+    public static void main(String args[]){
+
+    }
 }

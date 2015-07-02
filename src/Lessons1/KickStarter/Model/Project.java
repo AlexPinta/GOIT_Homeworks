@@ -5,6 +5,7 @@ import Lessons1.KickStarter.Model.ProjectElements.ProjectHistory;
 import Lessons1.KickStarter.Model.ProjectElements.ProjectLink;
 import Lessons1.KickStarter.Model.ProjectElements.ProjectQuestionAnswer;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.HashMap;
 
@@ -22,8 +23,11 @@ public class Project implements StructureElement {
     }
     public EnumMap<TypeProjectElements, ProjectElement> projectElementEnumMap;
     private HashMap<Class, TypeProjectElements> internalMapping;
+    private String name;
 
-    public Project() {
+    public Project(String pName) {
+        name = pName;
+
         for (TypeProjectElements locElements : TypeProjectElements.values()){
             projectElementEnumMap.put(locElements, null);
         }
@@ -37,6 +41,11 @@ public class Project implements StructureElement {
             projectElementEnumMap.put(element, pProjectElement);
             return true;
         }
+    }
+
+    @Override
+    public ArrayList<StructureElement> getChild() {
+        return null;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package Lessons1.KickStarter.Model;
 
+import java.util.ArrayList;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -10,4 +12,5 @@ package Lessons1.KickStarter.Model;
  */
 public interface StructureElement {
     public boolean isProject();
+    public ArrayList<StructureElement> getChild();
 }
