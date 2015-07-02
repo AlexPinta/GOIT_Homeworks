@@ -1,4 +1,4 @@
-package Lessons1.KickStarter;
+package Lessons1.KickStarter.View;
 
 import java.io.InputStream;
 import java.util.Scanner;

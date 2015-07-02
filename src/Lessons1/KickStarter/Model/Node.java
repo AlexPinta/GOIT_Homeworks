@@ -15,11 +15,13 @@ public class Node implements StructureElement {
     public enum NodesType{
         MAIN, CATEGORY, PROJECT;
     }
+    private String name;
     private NodesType nodeType;
     private ArrayList<StructureElement> nodeArrayList;
 
-    public Node(NodesType pNodeType) {
+    public Node(String pName, NodesType pNodeType) {
         nodeType = pNodeType;
+        name = pName;
     }
 
     @Override
