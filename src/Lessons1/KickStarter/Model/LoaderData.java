@@ -15,5 +15,7 @@ public class LoaderData {
         mainNode.addElement(new Node("Education",       Node.NodesType.CATEGORY));
         mainNode.addElement(new Node("Games",           Node.NodesType.CATEGORY));
         mainNode.addElement(new Node("Software",        Node.NodesType.CATEGORY));
+
+
     }
 }
