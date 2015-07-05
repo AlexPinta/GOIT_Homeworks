@@ -35,9 +35,9 @@ public class ProjectQuestionAnswer implements ProjectElement {
     @Override
     public HashMap<String, Integer> getLayoutPattern() {
         HashMap<String, Integer> temp = new HashMap<String, Integer>();
-        temp.put("description",     0);
-        temp.put("user",            0);
-        temp.put("dateAdded",       0);
+        temp.put("description",     25);
+        temp.put("user",            20);
+        temp.put("dateAdded",       8);
 
         return temp;
     }

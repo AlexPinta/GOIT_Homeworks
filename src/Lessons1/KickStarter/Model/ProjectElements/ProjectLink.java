@@ -18,8 +18,8 @@ public class ProjectLink implements ProjectElement {
     private HashMap<String, Integer> layout;
     private ArrayList<DataElement> dataArrayList;
 
-    public ProjectLink(String pDescription, String pUser) {
-        dataArrayList.add(new DataElement(pDescription, pUser));
+    public ProjectLink(String pDescription, String pLink) {
+        dataArrayList.add(new DataElement(pDescription, pLink));
     }
 
     @Override
@@ -35,8 +35,8 @@ public class ProjectLink implements ProjectElement {
     @Override
     public HashMap<String, Integer> getLayoutPattern() {
         HashMap<String, Integer> temp = new HashMap<String, Integer>();
-        temp.put("description",     0);
-        temp.put("link",            0);
+        temp.put("description",     25);
+        temp.put("link",            30);
 
         return temp;
     }
@@ -50,9 +50,9 @@ public class ProjectLink implements ProjectElement {
         public String description;
         public String link;
 
-        DataElement(String pDescription, String pUser) {
+        DataElement(String pDescription, String pLink) {
             description = pDescription;
-            link = pUser;
+            link = pLink;
         }
     }
 }

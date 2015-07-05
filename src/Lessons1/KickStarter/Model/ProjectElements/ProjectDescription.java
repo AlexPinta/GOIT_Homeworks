@@ -30,10 +30,10 @@ public class ProjectDescription implements ProjectElement {
     @Override
     public HashMap<String, Integer> getLayoutPattern() {
         HashMap<String, Integer> temp = new HashMap<String, Integer>();
-        temp.put("description",         0);
-        temp.put("requirementAmount",   0);
-        temp.put("balancedAmount",      0);
-        temp.put("daysLeft",            0);
+        temp.put("description",         20);
+        temp.put("requirementAmount",   8);
+        temp.put("balancedAmount",      8);
+        temp.put("daysLeft",            3);
 
         return temp;
     }
