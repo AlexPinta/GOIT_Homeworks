@@ -25,11 +25,11 @@ public class Main {
             System.out.println("2. Long");
             System.out.println("Quit (or any key). Exit from program");
 
-            switch {
+            /*switch {
                 case "1":
 
 
-            }
+            } */
             while (inputType.equals("")) {
                 inputType = locScanner.nextLine();
             }
@@ -47,10 +47,10 @@ public class Main {
 
             System.out.print("Input quantity analized elements: ");
             int tempVar = locScanner.nextInt();
-            if (ArrayAlgoritms.inputElementsOfArray(locArrayList, QUANTITY_INPUTED_ELEMENTS, System.in)) {
+            /*if (ArrayAlgoritms.inputElementsOfArray(locArrayList, QUANTITY_INPUTED_ELEMENTS, System.in)) {
                 distance = ArrayAlgoritms.findDistanceBetweenMinElements(locArrayList, tempVar);
                 System.out.println("Distance: " + distance);
-            }
+            } */
         }
 
     }

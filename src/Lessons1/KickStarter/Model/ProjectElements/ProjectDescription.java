@@ -1,8 +1,7 @@
-package Lessons1.KickStarter.Model.ProjectElements;
+package Lessons1.KickStarter.model.projectElements;
 
-import Lessons1.KickStarter.Model.ProjectElement;
+import Lessons1.KickStarter.model.ProjectElement;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -13,12 +12,11 @@ import java.util.HashMap;
  * Time: 5:57
  * @version: 1.0
  */
-public class ProjectDescription implements ProjectElement {
+public class ProjectDescription extends ProjectElement {
     public String description;
     public double requirementAmount;
     public double balancedAmount;
     public int daysLeft;
-    private HashMap<String, Integer> layout;
 
     public ProjectDescription(String pDescription, double pRequirementAmount, double pBalancedAmount, int pDaysLeft) {
         description = pDescription;
@@ -27,30 +25,5 @@ public class ProjectDescription implements ProjectElement {
         daysLeft = pDaysLeft;
     }
 
-    @Override
-    public HashMap<String, Integer> getLayoutPattern() {
-        HashMap<String, Integer> temp = new HashMap<String, Integer>();
-        temp.put("description",         20);
-        temp.put("requirementAmount",   8);
-        temp.put("balancedAmount",      8);
-        temp.put("daysLeft",            3);
-
-        return temp;
-    }
-
-    @Override
-    public HashMap<String, Integer> getLayout() throws InstantiationException{
-        if (layout.isEmpty()) {
-            new InstantiationException("Element don't have layout parameters");
-            return null;
-        } else {
-            return layout;
-        }
-    }
-
-    @Override
-    public void setLayout(HashMap<String, Integer> layout) {
-        this.layout = layout;
-    }
 
 }

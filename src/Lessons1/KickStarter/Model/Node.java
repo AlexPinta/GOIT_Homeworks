@@ -1,6 +1,7 @@
-package Lessons1.KickStarter.Model;
+package Lessons1.KickStarter.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,29 +12,23 @@ import java.util.ArrayList;
  * @version: 1.0
  */
 
-public class Node implements StructureElement {
-    public enum NodesType{
-        MAIN, CATEGORY;
-    }
-    private String name;
-    private NodesType nodeType;
-    private ArrayList<StructureElement> nodeArrayList;
+public class Node extends StructureElement {
+//    public enum NodesType{
+//        MAIN, CATEGORY;
+//    }
+//    private NodesType nodeType;
+    private List<StructureElement> nodeArrayList = new ArrayList<StructureElement>();
 
-    public Node(String pName, NodesType pNodeType) {
-        nodeType = pNodeType;
+    public Node(String pName) {
         name = pName;
     }
 
     @Override
-    public ArrayList<StructureElement> getChild() {
+    public List<StructureElement> getChild() {
         return nodeArrayList;
     }
 
-    @Override
-    public boolean isProject() {
-        return false;
-    }
-    public void addElement(StructureElement pStructureElement){
-        nodeArrayList.add(pStructureElement);
+    public String getName() {
+        return name;
     }
 }

@@ -1,13 +1,14 @@
-package Lessons1.KickStarter.Model;
+package Lessons1.KickStarter.model;
 
-import Lessons1.KickStarter.Model.ProjectElements.ProjectDescription;
-import Lessons1.KickStarter.Model.ProjectElements.ProjectHistory;
-import Lessons1.KickStarter.Model.ProjectElements.ProjectLink;
-import Lessons1.KickStarter.Model.ProjectElements.ProjectQuestionAnswer;
+import Lessons1.KickStarter.model.projectElements.ProjectDescription;
+import Lessons1.KickStarter.model.projectElements.ProjectHistory;
+import Lessons1.KickStarter.model.projectElements.ProjectLink;
+import Lessons1.KickStarter.model.projectElements.ProjectQuestionAnswer;
 
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,46 +18,21 @@ import java.util.HashMap;
  * Time: 5:18
  * @version: 1.0
  */
-public class Project implements StructureElement {
-    public enum TypeProjectElements{
-        DESCRIPTION, HISTORY, LINKS, QUESTION_ANSWER;
-    }
-    public EnumMap<TypeProjectElements, ProjectElement> projectElementEnumMap;
-    private HashMap<Class, TypeProjectElements> internalMapping;
-    private String name;
+public class Project extends StructureElement {
+    public List<ProjectElement> projectElement = new ArrayList<ProjectElement>();
+//    private HashMap<Class, TypeProjectElements> internalMapping = new HashMap<Class, TypeProjectElements>();
 
     public Project(String pName) {
         name = pName;
-
-        for (TypeProjectElements locElements : TypeProjectElements.values()){
-            projectElementEnumMap.put(locElements, null);
-        }
-    }
-
-    public boolean loadDataProjectElement(ProjectElement pProjectElement){
-        TypeProjectElements element = internalMapping.get(pProjectElement.getClass());
-        if (element == null) {
-            return false;
-        } else {
-            projectElementEnumMap.put(element, pProjectElement);
-            return true;
-        }
+//        for (TypeProjectElements locElements : TypeProjectElements.values()){
+//            projectElementEnumMap.put(locElements, null);
+//        }
     }
 
     @Override
-    public ArrayList<StructureElement> getChild() {
-        return null;
-    }
-
-    @Override
-    public boolean isProject() {
-        return true;
-    }
-
-    {
-        internalMapping.put(ProjectDescription.class,    TypeProjectElements.DESCRIPTION);
-        internalMapping.put(ProjectHistory.class,        TypeProjectElements.HISTORY);
-        internalMapping.put(ProjectLink.class,           TypeProjectElements.LINKS);
-        internalMapping.put(ProjectQuestionAnswer.class, TypeProjectElements.DESCRIPTION);
+    public List<StructureElement> getChild() {
+        ArrayList<StructureElement> resultArray = new ArrayList<StructureElement>();
+        resultArray.addAll(projectElement);
+        return resultArray;
     }
 }

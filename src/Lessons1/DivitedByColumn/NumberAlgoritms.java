@@ -15,7 +15,7 @@ import java.util.List;
  * Time: 8:45
  * @version: 1.0
  */
-public final class NumberAlgoritms {
+/*public final class NumberAlgoritms {
     public static StringBuilder[] dividedByColumn(String expression){
         ArrayList<String> locArrayList;
         Number locNumber;
@@ -65,7 +65,7 @@ public final class NumberAlgoritms {
 //            double locDividend = (dividend.getClass() == Double.class) ? Double.parseDouble(dividend.toString()) : Long.parseLong(dividend.toString());
 //            double locDivider = (divider.getClass() == Double.class) ? Double.parseDouble(divider.toString()) : Long.parseLong(divider.toString());
 //            double locTempResult = 0;
-            roundResult = (Long) Math.round(dividend/divider);
+/*            roundResult = (Long) Math.round(dividend/divider);
             if (tempResult == null) {
                 locTempResult = (roundResult*locDivider) : ((Double)(roundResult*locDivider)).longValue();
                 tempResult = castTypedValue(divider);
@@ -78,11 +78,11 @@ public final class NumberAlgoritms {
                 /*dividend = (T)
                         (((dividend.getClass() == Double.class) ? Double.parseDouble(dividend.toString()) : Long.parseLong(dividend.toString())) -
                         ((tempResult.getClass() == Double.class) ? Double.parseDouble(tempResult.toString()) : Long.parseLong(tempResult.toString()))) ;
-            */
+
             }
         }
 
-        private <N extends Double> Double castTypedValue (List typedValue){
+/*        private <N extends Double> Double castTypedValue (List typedValue){
                 return (Double) typedValue;
         }
         private <N extends Integer> Integer castTypedValue (List typedValue){
@@ -97,7 +97,7 @@ public final class NumberAlgoritms {
 
         public Long getRoundDivider() {
             return roundResult;
-        }                                                                                                        ring
+        }
 
         public T getDividend() {
             return dividend;
@@ -112,4 +112,4 @@ public final class NumberAlgoritms {
         }
 
     }
-}
+}     */

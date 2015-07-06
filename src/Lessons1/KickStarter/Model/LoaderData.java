@@ -1,12 +1,11 @@
-package Lessons1.KickStarter.Model;
+package Lessons1.KickStarter.model;
 
-import Lessons1.KickStarter.Model.ProjectElements.ProjectDescription;
-import Lessons1.KickStarter.Model.ProjectElements.ProjectHistory;
-import Lessons1.KickStarter.Model.ProjectElements.ProjectLink;
-import Lessons1.KickStarter.Model.ProjectElements.ProjectQuestionAnswer;
+import Lessons1.KickStarter.model.projectElements.ProjectDescription;
+import Lessons1.KickStarter.model.projectElements.ProjectHistory;
+import Lessons1.KickStarter.model.projectElements.ProjectLink;
+import Lessons1.KickStarter.model.projectElements.ProjectQuestionAnswer;
 
 import java.sql.*;
-import java.util.HashMap;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,61 +18,64 @@ import java.util.HashMap;
 public class LoaderData {
 
     public Node loadDataWebSite(){
-        Node mainNode = new Node("List of category",    Node.NodesType.MAIN);
-        mainNode.addElement(new Node("Education",       Node.NodesType.CATEGORY));
-        mainNode.addElement(new Node("Games",           Node.NodesType.CATEGORY));
-        mainNode.addElement(new Node("Software",        Node.NodesType.CATEGORY));
+        StructureBuilder treeCreator = new StructureBuilder();
+        int structureCounter = 0;
+        Node mainNode = new Node("List of category");
+        treeCreator.addStructureElementChild(mainNode, new Node("Education"));
+        treeCreator.addStructureElementChild(mainNode, new Node("Games"));
+        treeCreator.addStructureElementChild(mainNode, new Node("Software"));
 
-        Project locProject;
-        ProjectElement locProjectElement;
-        locProject = new Project("Project math for school");
-        locProjectElement = new ProjectDescription("Project for pupils 9-10 class", 100, 80, 31);
-        locProject.loadDataProjectElement(locProjectElement);
-        locProjectElement = new ProjectHistory("We create new feature - online check your test", "Developer", Date.valueOf("20140510"));
-        locProject.loadDataProjectElement(locProjectElement);
-        locProjectElement = new ProjectLink("Demo version", "http://");
-        locProject.loadDataProjectElement(locProjectElement);
-        locProjectElement = new ProjectQuestionAnswer("How long are u going to develop this project?", "Ivanov", Date.valueOf("20140115"));
-        locProject.loadDataProjectElement(locProjectElement);
-        locProjectElement = new ProjectQuestionAnswer("During 3 month", "Moderator", Date.valueOf("20140116"));
-        locProject.loadDataProjectElement(locProjectElement);
-        ((Node)mainNode.getChild().get(0)).addElement(locProject);
+        ProjectElement projectComponent;
+        Project projectContainer = new Project("Project math for school");
+        projectComponent = new ProjectDescription("Project for pupils 9-10 class", 100, 80, 31);
+        treeCreator.loadDataInProject(projectContainer, projectComponent);
+        projectComponent = new ProjectHistory("We create new feature - online check your test", "Developer", Date.valueOf("2014-05-10"));
+        treeCreator.loadDataInProject(projectContainer, projectComponent);
+        projectComponent = new ProjectLink("Demo version", "http://");
+        treeCreator.loadDataInProject(projectContainer, projectComponent);
+        projectComponent = new ProjectQuestionAnswer("How long are u going to develop this project?", "Ivanov", Date.valueOf("2014-01-15"));
+        treeCreator.loadDataInProject(projectContainer, projectComponent);
+        projectComponent = new ProjectQuestionAnswer("During 3 month", "Moderator", Date.valueOf("2014-01-16"));
+        treeCreator.loadDataInProject(projectContainer, projectComponent);
+        treeCreator.addStructureElementChild((Node)mainNode.getChild().get(structureCounter), projectContainer);
 
-        locProject = new Project("Project english for school");
-        locProjectElement = new ProjectDescription("Do you speak english? Let's study together!!!", 1000, 756, 45);
-        locProject.loadDataProjectElement(locProjectElement);
-        locProjectElement = new ProjectHistory("We finish case test! We start production as soon as possible", "Developer", Date.valueOf("20140510"));
-        locProject.loadDataProjectElement(locProjectElement);
-        locProjectElement = new ProjectLink("Demo version", "http://");
-        locProject.loadDataProjectElement(locProjectElement);
-        locProjectElement = new ProjectQuestionAnswer("Oh buddy it's good idea. I'm looking for similar project for pupils 2-3 class. Is it interesting for you?"
-                                                      ,"Teacher", Date.valueOf("20140322"));
-        locProject.loadDataProjectElement(locProjectElement);
-        locProjectElement = new ProjectQuestionAnswer("Yes, send me your contact on offer@kickstarter.com", "Moderator", Date.valueOf("20140116"));
-        locProject.loadDataProjectElement(locProjectElement);
-        ((Node)mainNode.getChild().get(0)).addElement(locProject);
+        projectContainer = new Project("Project english for school");
+        projectComponent = new ProjectDescription("Do you speak english? Let's study together!!!", 1000, 756, 45);
+        treeCreator.loadDataInProject(projectContainer, projectComponent);
+        projectComponent = new ProjectHistory("We finish case test! We start production as soon as possible", "Developer", Date.valueOf("2014-05-10"));
+        treeCreator.loadDataInProject(projectContainer, projectComponent);
+        projectComponent = new ProjectLink("Demo version", "http://");
+        treeCreator.loadDataInProject(projectContainer, projectComponent);
+        projectComponent = new ProjectQuestionAnswer("Oh buddy it's good idea. I'm looking for similar project for pupils 2-3 class. Is it interesting for you?"
+                                                      ,"Teacher", Date.valueOf("2014-03-22"));
+        treeCreator.loadDataInProject(projectContainer, projectComponent);
+        projectComponent = new ProjectQuestionAnswer("Yes, send me your contact on offer@kickstarter.com", "Moderator", Date.valueOf("2014-01-16"));
+        treeCreator.loadDataInProject(projectContainer, projectComponent);
+        treeCreator.addStructureElementChild((Node)mainNode.getChild().get(structureCounter), projectContainer);
 
-        locProject = new Project("Project chemistry for school");
-        ((Node)mainNode.getChild().get(0)).addElement(locProject);
+        projectContainer = new Project("Project chemistry for school");
+        treeCreator.addStructureElementChild((Node)mainNode.getChild().get(structureCounter), projectContainer);
 
-        locProject = new Project("Worms");
-        locProjectElement = new ProjectDescription("WORMS!!! WORMS!!! WORMS!!! Challenge everybody.", 5505, 5505, 1);
-        locProject.loadDataProjectElement(locProjectElement);
-        locProjectElement = new ProjectHistory("We decided to realized worms in 3D", "Developer", Date.valueOf("20140510"));
-        locProject.loadDataProjectElement(locProjectElement);
-        locProjectElement = new ProjectLink("Demo version", "http://");
-        locProject.loadDataProjectElement(locProjectElement);
-        locProjectElement = new ProjectQuestionAnswer("Will be there opportunity of multi and single player?", "Gamer Vasya", Date.valueOf("20140725"));
-        locProject.loadDataProjectElement(locProjectElement);
-        locProjectElement = new ProjectQuestionAnswer("Yeah, either we are going to start championship!!! And it will be soon.", "Moderator", Date.valueOf("20140107"));
-        locProject.loadDataProjectElement(locProjectElement);
-        ((Node)mainNode.getChild().get(1)).addElement(locProject);
+        ++structureCounter;
 
-        locProject = new Project("Balda");
-        ((Node)mainNode.getChild().get(1)).addElement(locProject);
+        projectContainer = new Project("Worms");
+        projectComponent = new ProjectDescription("WORMS!!! WORMS!!! WORMS!!! Challenge everybody.", 5505, 5505, 1);
+        treeCreator.loadDataInProject(projectContainer, projectComponent);
+        projectComponent = new ProjectHistory("We decided to realized worms in 3D", "Developer", Date.valueOf("2014-05-10"));
+        treeCreator.loadDataInProject(projectContainer, projectComponent);
+        projectComponent = new ProjectLink("Demo version", "http://");
+        treeCreator.loadDataInProject(projectContainer, projectComponent);
+        projectComponent = new ProjectQuestionAnswer("Will be there opportunity of multi and single player?", "Gamer Vasya", Date.valueOf("2014-07-25"));
+        treeCreator.loadDataInProject(projectContainer, projectComponent);
+        projectComponent = new ProjectQuestionAnswer("Yeah, either we are going to start championship!!! And it will be soon.", "Moderator", Date.valueOf("2014-01-07"));
+        treeCreator.loadDataInProject(projectContainer, projectComponent);
+        treeCreator.addStructureElementChild((Node)mainNode.getChild().get(structureCounter), projectContainer);
 
-        locProject = new Project("Puzzles");
-        ((Node)mainNode.getChild().get(1)).addElement(locProject);
+        projectContainer = new Project("Balda");
+        treeCreator.addStructureElementChild((Node)mainNode.getChild().get(structureCounter), projectContainer);
+
+        projectContainer = new Project("Puzzles");
+        treeCreator.addStructureElementChild((Node)mainNode.getChild().get(structureCounter), projectContainer);
 
         return mainNode;
     }

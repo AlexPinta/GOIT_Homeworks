@@ -1,6 +1,6 @@
-package Lessons1.KickStarter.Model.ProjectElements;
+package Lessons1.KickStarter.model.projectElements;
 
-import Lessons1.KickStarter.Model.ProjectElement;
+import Lessons1.KickStarter.model.ProjectElement;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,37 +14,11 @@ import java.util.HashMap;
  * Time: 5:57
  * @version: 1.0
  */
-public class ProjectQuestionAnswer implements ProjectElement {
-    private HashMap<String, Integer> layout;
-    private ArrayList<DataElement> dataArrayList;
+public class ProjectQuestionAnswer extends ProjectElement {
+    private ArrayList<DataElement> dataArrayList = new ArrayList<DataElement>();
 
     public ProjectQuestionAnswer(String pDescription, String pUser, Date pDateAdded) {
         dataArrayList.add(new DataElement(pDescription, pUser, pDateAdded));
-    }
-
-    @Override
-    public HashMap<String, Integer> getLayout() throws InstantiationException{
-        if (layout.isEmpty()) {
-            new InstantiationException("Element don't have layout parameters");
-            return null;
-        } else {
-            return layout;
-        }
-    }
-
-    @Override
-    public HashMap<String, Integer> getLayoutPattern() {
-        HashMap<String, Integer> temp = new HashMap<String, Integer>();
-        temp.put("description",     25);
-        temp.put("user",            20);
-        temp.put("dateAdded",       8);
-
-        return temp;
-    }
-
-    @Override
-    public void setLayout(HashMap<String, Integer> layout) {
-        this.layout = layout;
     }
 
     class DataElement {
