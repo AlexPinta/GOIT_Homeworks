@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @version: 1.0
  */
 public class Main {
-    public static void main(String args[]){
+/*    public static void main(String args[]){
         StringBuilder[] locStringBuilders;
         Scanner locScanner = new Scanner(System.in);
         String expression;
@@ -26,5 +26,5 @@ public class Main {
             System.out.println(locStringBuilders[1].toString());
         }
 
-    }
+    }    */
 }
